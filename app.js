@@ -23,7 +23,7 @@ app.get('/login', ((req, res) => {
     res.render('login', {title: 'Login Form'});
 }));
 
-app.post('/user', async (req, res) => {
+app.post('/login', async (req, res) => {
     const {login, password} = req.body;
 
     const users = await getUsers();
@@ -35,10 +35,10 @@ app.post('/user', async (req, res) => {
             url: '/login',
             refText: 'Back'
         });
-        return false;
+        return;
     }
 
-    res.render('user', {user});
+    res.redirect(`/users/${user.id}`);
 });
 
 app.get('/register', ((req, res) => {
@@ -54,7 +54,7 @@ app.post('/register', async (req, res) => {
             url: '/register',
             refText: 'Back to registration'
         });
-        return false;
+        return;
     }
 
     if (password !== passwordAgain) {
@@ -63,7 +63,7 @@ app.post('/register', async (req, res) => {
             url: '/register',
             refText: 'Back to registration'
         });
-        return false;
+        return;
     }
 
     const allUsers = await getUsers();
@@ -74,10 +74,10 @@ app.post('/register', async (req, res) => {
             url: '/register',
             refText: 'Back to registration'
         });
-        return false;
+        return;
     }
 
-    allUsers.push({name, city, login, password});
+    allUsers.push({id: Date.now(), name, city, login, password});
     fs.writeFile(users, JSON.stringify(allUsers), err => console.log(err));
 
     res.redirect('/login');
@@ -88,11 +88,16 @@ app.get('/users', async (req, res) => {
     res.render('users', {users});
 });
 
+app.get('/users/:userId', async (req, res) => {
+    const users = await getUsers();
+    const user = users.find(user => user.id === +req.params.userId);
+
+    res.render('user', {user});
+});
 
 app.listen(3000, () => {
     console.log('App start on 3000');
 });
-
 
 async function getUsers() {
     return new Promise(((resolve, reject) => {
