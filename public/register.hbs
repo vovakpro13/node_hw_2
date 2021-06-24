@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+</head>
+<body>
+    <h3>{{title}}</h3>
+    <form action="/register" method="post">
+
+        <label for="login"><sub>*</sub> Enter login</label>
+        <input id="login" name="login" type="text" placeholder="your login"><br><br>
+
+        <label for="pass"><sub>*</sub> Enter password</label>
+        <input id="pass" name="password" type="password" placeholder="your password"><br><br>
+
+        <label for="pass2"><sub>*</sub> Enter password again</label>
+        <input id="pass2" name="passwordAgain" type="password" placeholder="again"><br><br>
+
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" placeholder="Vasya"><br><br>
+
+        <label for="city">Your city</label>
+        <input id="city" name="city" type="text" placeholder="New-york"><br><br>
+
+        <button type="submit">Sign Up</button>
+
+    </form>
+</body>
+</html>

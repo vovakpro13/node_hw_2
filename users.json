@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Volodymyr",
+    "login": "vova",
+    "password": "1234",
+    "city": "Lviv"
+  },
+  {
+    "name": "Petro",
+    "login": "petka34",
+    "password": "2345",
+    "city": "Vinnitsa"
+  },
+  {
+    "name": "Olena",
+    "login": "olenaPetrivna",
+    "password": "0987",
+    "city": "Odessa"
+  },
+  {
+    "name": "Galyna",
+    "login": "g0lina",
+    "password": "6789",
+    "city": "Lviv"
+  },
+  {
+    "name": "",
+    "city": "",
+    "login": "Bogdan65",
+    "password": "boda"
+  },
+  {
+    "name": "Andriy Petrovich",
+    "city": "Ternopil",
+    "login": "andriy",
+    "password": "a2"
+  }
+]
