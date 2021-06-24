@@ -35,11 +35,10 @@ app.post('/user', async (req, res) => {
             url: '/login',
             refText: 'Back'
         });
+        return false;
     }
 
-    res.render('user', {user})
-    return true;
-
+    res.render('user', {user});
 });
 
 app.get('/register', ((req, res) => {
